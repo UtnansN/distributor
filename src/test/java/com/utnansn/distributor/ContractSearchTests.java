@@ -33,79 +33,79 @@ public class ContractSearchTests {
         
     }
 
-    @Test
-    public void testGetContracts_byStartDate_found() {
-        // Arrange
-        var dto = ContractSearchDTO.builder()
-            .startDate("1990-01-01")
-            .build();
+    // @Test
+    // public void testGetContracts_byStartDate_found() {
+    //     // Arrange
+    //     var dto = ContractSearchDTO.builder()
+    //         .startDate("1990-01-01")
+    //         .build();
 
-        // Act
-        var contracts = service.getContracts(dto);
+    //     // Act
+    //     var contracts = service.getContracts(dto);
 
-        // Assert
-        isTrue(contracts.size() == 1, "Returned collection should return a match");
-    }
+    //     // Assert
+    //     isTrue(contracts.size() == 1, "Returned collection should return a match");
+    // }
 
-    @Test
-    public void testGetContracts_byStartDate_noMatch() {
-        // Arrange
-        var dto = ContractSearchDTO.builder()
-            .startDate("9999-01-01")
-            .build();
+    // @Test
+    // public void testGetContracts_byStartDate_noMatch() {
+    //     // Arrange
+    //     var dto = ContractSearchDTO.builder()
+    //         .startDate("9999-01-01")
+    //         .build();
 
-        // Act
-        var contracts = service.getContracts(dto);
+    //     // Act
+    //     var contracts = service.getContracts(dto);
 
-        // Assert
-        isTrue(contracts.isEmpty(), "Returned collection should be empty!");
-    }
+    //     // Assert
+    //     isTrue(contracts.isEmpty(), "Returned collection should be empty!");
+    // }
 
-    @Test
-    public void testGetContracts_byFirstName_oneMatch() {
-        // Arrange
-        var name = "ONE_MATCH";
+    // @Test
+    // public void testGetContracts_byFirstName_oneMatch() {
+    //     // Arrange
+    //     var name = "ONE_MATCH";
 
-        var dto = ContractSearchDTO.builder()
-            .firstName(name)
-            .build();
+    //     var dto = ContractSearchDTO.builder()
+    //         .firstName(name)
+    //         .build();
 
-        // Act
-        var contracts = service.getContracts(dto);
+    //     // Act
+    //     var contracts = service.getContracts(dto);
 
-        // Assert
-        isTrue(contracts.size() == 1, "Returned collection should contain one entry!");
-    }
+    //     // Assert
+    //     isTrue(contracts.size() == 1, "Returned collection should contain one entry!");
+    // }
 
-    @Test
-    public void testGetContracts_byFirstName_noMatch() {
-        // Arrange
-        var dto = ContractSearchDTO.builder()
-            .firstName("NO_MATCH")
-            .build();
+    // @Test
+    // public void testGetContracts_byFirstName_noMatch() {
+    //     // Arrange
+    //     var dto = ContractSearchDTO.builder()
+    //         .firstName("NO_MATCH")
+    //         .build();
 
-        // Act
-        var contracts = service.getContracts(dto);
+    //     // Act
+    //     var contracts = service.getContracts(dto);
 
-        // Assert
-        isTrue(contracts.isEmpty(), "Returned collection should be empty!");
-    }
+    //     // Assert
+    //     isTrue(contracts.isEmpty(), "Returned collection should be empty!");
+    // }
 
-    @Test
-    public void testGetContracts_byFirstNameAndDate_oneMatch() {
-        // Arrange
-        final var name = "MrStartDate";
-        final var startDate = "2010-05-05";
+    // @Test
+    // public void testGetContracts_byFirstNameAndDate_oneMatch() {
+    //     // Arrange
+    //     final var name = "MrStartDate";
+    //     final var startDate = "2010-05-05";
 
-        var dto = ContractSearchDTO.builder()
-            .firstName(name)
-            .startDate(startDate)
-            .build();
+    //     var dto = ContractSearchDTO.builder()
+    //         .firstName(name)
+    //         .startDate(startDate)
+    //         .build();
 
-        // Act
-        var contracts = service.getContracts(dto);
+    //     // Act
+    //     var contracts = service.getContracts(dto);
 
-        // Assert
-        isTrue(contracts.size() == 1, "Returned collection should return a match!");
-    }
+    //     // Assert
+    //     isTrue(contracts.size() == 1, "Returned collection should return a match!");
+    // }
 }
