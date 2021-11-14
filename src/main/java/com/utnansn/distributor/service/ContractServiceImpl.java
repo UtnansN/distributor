@@ -1,13 +1,14 @@
 package com.utnansn.distributor.service;
 
-import java.util.Set;
+import java.util.Collection;
 
+import com.utnansn.distributor.dto.ContractSearchDTO;
 import com.utnansn.distributor.dto.CreateContractDTO;
 import com.utnansn.distributor.mapper.ContractMapper;
 import com.utnansn.distributor.model.Contract;
-import com.utnansn.distributor.model.User;
 import com.utnansn.distributor.repository.ContractRepository;
 import com.utnansn.distributor.repository.UserRepository;
+import com.utnansn.distributor.repository.specification.ContractSpecificationHelper;
 
 import org.springframework.stereotype.Service;
 
@@ -37,13 +38,13 @@ public class ContractServiceImpl implements ContractService {
         return contractRepository.save(contract);
     }
 
-    public Set<Contract> getContracts() {
-        return null;
+    public Collection<Contract> getContracts(ContractSearchDTO searchDTO) {
+        var searchSpec = ContractSpecificationHelper.getSearchSpecification(searchDTO);
+
+        return contractRepository.findAll(searchSpec);
     }
 
-    public Set<Contract> getContractByUserId(Long userId) {
-        User user = userRepository.getById(userId);
-        
-        return user.getContracts();
+    public Collection<Contract> getContractByUserId(Long userId) {
+        return userRepository.getById(userId).getContracts();
     }
 }
