@@ -12,4 +12,6 @@ public interface ContractService {
     public Collection<Contract> getContracts(ContractSearchDTO searchDTO);
 
     public Collection<Contract> getContractByUserId(Long id);
+
+    public void deleteContract(Long id);
 }

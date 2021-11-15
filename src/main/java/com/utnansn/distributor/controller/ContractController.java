@@ -7,6 +7,7 @@ import com.utnansn.distributor.dto.CreateContractDTO;
 import com.utnansn.distributor.model.Contract;
 import com.utnansn.distributor.service.ContractService;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +38,12 @@ public class ContractController {
     @ApiOperation(value = "Adds a contract")
     public Contract insertContract(@RequestBody CreateContractDTO contractDTO) {
         return contractService.createContract(contractDTO);
+    }
+
+    @DeleteMapping("/contracts/{id}")
+    @ApiOperation(value = "Deletes a contract based on ID")
+    public void deleteContract(@PathVariable Long id) {
+        contractService.deleteContract(id);
     }
 
     @GetMapping("/user/{id}/contracts")
